@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 import streamlit as st
 
@@ -33,7 +33,7 @@ cat = data['Category']
 
 (mess_train, mess_test, cat_train, cat_test) = train_test_split(mess, cat, test_size=0.2)
 
-cv = CountVectorizer(stop_words='english')
+cv = TfidfVectorizer(stop_words='english')
 features = cv.fit_transform(mess_train)
        
 # Creating model
